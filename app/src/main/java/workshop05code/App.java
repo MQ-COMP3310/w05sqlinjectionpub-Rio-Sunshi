@@ -77,8 +77,10 @@ public class App {
                 System.out.println("You've guessed '" + guess+"'.");
 
                 if (wordleDatabaseConnection.isValidWord(guess)) { 
+                    logger.log(Level.ALL, "");
                     System.out.println("Success! It is in the the list.\n");
                 }else{
+                    logger.log(Level.SEVERE, "your guess, " + guess + ", is invalid.");
                     System.out.println("Sorry. This word is NOT in the the list.\n");
                 }
 

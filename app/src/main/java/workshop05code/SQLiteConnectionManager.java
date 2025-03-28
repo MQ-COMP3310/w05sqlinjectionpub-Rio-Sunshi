@@ -153,13 +153,15 @@ public class SQLiteConnectionManager {
             ResultSet resultRows = stmt.executeQuery();
             if (resultRows.next()) {
                 int result = resultRows.getInt("total");
+                logger.log(Level.ALL, "");
                 return (result >= 1);
             }
-
+            logger.log(Level.SEVERE, "your guess, " + guess + ", is invalid.");
             return false;
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            logger.log(Level.WARNING, "Your message.", e); 
             return false;
         }
 
